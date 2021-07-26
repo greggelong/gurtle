@@ -8,12 +8,30 @@ function setup() {
   background(255);
 
   greg = new Gurtle(10,height/2,color(255,0,0));
-  mj = new Gurtle(10, height-10, color(0,0,255));
+  mj = new Gurtle(10, height-10, color(255,255,0));
   //sqr(greg);
   //sqr(mj);
   //koch(greg, 5, 500);
-  koch(mj,3,500);
-  instru();
+  //koch(mj,3,500);
+  //instru();
+
+  // set up for tree
+  greg.x = width/2
+  greg.y = height;
+  greg.angle = -90;
+  // call tree
+  //tree(greg,100, 20);
+}
+
+function draw(){
+  background(50);
+  mj.x = 1;
+  mj.y = height/2
+  koch(mj,3,599);
+  angle = map(mouseX,0, width,10,180);
+  tree(greg,100,mouseX);
+
+
 }
 
 function instru(){
@@ -56,19 +74,27 @@ function koch(t, order, size){
 
 }
 
-function tree(t, size){
-  background(255);
+
+
+
+function tree(t, size, angle){
+  //background(255);
   // set the tree at the bottom
-  t.x = width/2
-  t.y = height;
-  t.angle = -90;
+  
   if (size < 2){
-     console.log("over")
+     return;
   }else{
+    // draw tree
+    t.forward(size);
+    t.right(angle);
+    tree(t,size-15,angle);
+    t.left(angle*2);
+    tree(t,size-15,angle);
+    t.right(angle);
+    t.backward(size);
     
   }
-
-
+   
 }
 
 

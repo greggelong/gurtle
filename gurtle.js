@@ -24,6 +24,10 @@ class Gurtle{
 
   }
 
+  backward(amt){
+    this.forward(-amt);
+  }
+
   left(deg){
     this.angle -=deg;
   }
