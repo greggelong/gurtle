@@ -11,20 +11,23 @@ function setup() {
   mj = new Gurtle(10, height-10, color(0,0,255));
   //sqr(greg);
   //sqr(mj);
-  koch(greg, 5, 500);
+  //koch(greg, 5, 500);
   koch(mj,3,500);
+  instru();
 }
 
 function instru(){
   background(255);
-  
+  greg.x = width/2
+  greg.y = height;
+  greg.angle = -90;
   greg.forward(100);
-  mj.forward(50)
-  
-  greg.right(90);
-  mj.right(60);
-  greg.forward(100);
-  mj.forward(50)
+  greg.pushIt()
+  greg.right(45);
+  greg.forward(100/3);
+  greg.popIt();
+  greg.left(45);
+  greg.forward(100/3);
 
 
 }
@@ -50,6 +53,21 @@ function koch(t, order, size){
     t.left(60)
     koch(t, order-1, size/3)
   }
+
+}
+
+function tree(t, size){
+  background(255);
+  // set the tree at the bottom
+  t.x = width/2
+  t.y = height;
+  t.angle = -90;
+  if (size < 2){
+     console.log("over")
+  }else{
+    
+  }
+
 
 }
 

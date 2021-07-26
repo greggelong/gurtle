@@ -31,15 +31,17 @@ class Gurtle{
   pushIt(){
     // pushes angle and x y pos  and angle into a stack
     let pos = [this.x, this.y, this.angle];
-    this.stack.push();
+    this.stack.push(pos);
+    console.log("push", pos);
 
   }
 
   popIt(){
     let pos = this.stack.pop();
+    console.log("pop",pos);
     this.x = pos[0];
     this.y = pos[1];
-    this.angle = pos[3];
+    this.angle = pos[2];
   }
 
 
