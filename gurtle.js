@@ -5,10 +5,11 @@ class Gurtle{
     this.y = y;
     this.clr = clr;
     this.angle = 0;
+    this.stack = [];
   }
 
   forward(amt){
-    // using polar cooridinates
+    // using polar coordinates
     stroke(this.clr);
     let x2 = this.x + amt * cos(this.angle);
     let y2 = this.y + amt * sin(this.angle);
@@ -25,6 +26,20 @@ class Gurtle{
 
   left(deg){
     this.angle -=deg;
+  }
+
+  pushIt(){
+    // pushes angle and x y pos  and angle into a stack
+    let pos = [this.x, this.y, this.angle];
+    this.stack.push();
+
+  }
+
+  popIt(){
+    let pos = this.stack.pop();
+    this.x = pos[0];
+    this.y = pos[1];
+    this.angle = pos[3];
   }
 
 
