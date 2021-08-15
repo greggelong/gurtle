@@ -52,8 +52,9 @@ https://greggelong.github.io/gurtle/
 
 
 
+## link to a gurtle template on the P5 web editor
 
-
+https://editor.p5js.org/greggelong/sketches/afr9muFbw
 
 
 
